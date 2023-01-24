@@ -1,0 +1,34 @@
+<?php $last_lesson_id=$data['course'][0]['last_lesson']; ?>
+<div class="container">
+    <h1> <?= $data['course'][0]['name']; ?></h1>
+    <div class="main-bottom">
+      <div class="video-container">
+        <video controls>
+          <source src="#" />
+        </video>
+        <div class="description-btn-ul">
+          <button class="description-li-btn li-active">
+            Сургалтын талаар
+          </button>
+          <button class="description-li-btn">Багшийн талаар</button>
+        </div>
+        <div class="description">
+          <p>
+            <?= $data['course'][0]['note']; ?>
+          </p>
+        </div>
+      </div>
+      <section class="content-container">
+        <h2 class="content-title">Агуулга</h2>
+        <?php foreach($data['course'][1] as $lesson):?>
+          <a href="" class="content-list-btn <?php if($lesson['lesson_id'] == $last_lesson_id ) echo 'content-active'; ?>">
+            <i class="fas fa-lock"></i>
+            <p class="lesson-title">  <?=$lesson['lesson_id'];?>. <?=$lesson['name'];?></p>
+            <p class="lesson-time"><?=gmdate('H:i:s',$lesson['seconds']);?></p>
+          </a>
+        <?php endforeach ?>
+
+
+      </section>
+    </div>
+  </div>

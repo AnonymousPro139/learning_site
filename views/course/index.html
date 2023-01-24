@@ -1,0 +1,30 @@
+<div class="main-title-container">
+    <button class="main-title">Таны авсан сургалтууд</button>
+    <button class="main-title">Дизайн</button>
+    <button class="main-title">IT & Software</button>
+    <button class="main-title">Хувь хүний хөгжил</button>
+    <button class="main-title">Photograph & Video</button>
+</div>
+<hr />
+<div class="cards-container">
+    <?php foreach($data['course'] as $course):?>
+    <div class="card-container">
+        <a href="/course/course_view?course_id=<?=$course['id'];?>&lesson_id=1">
+            <img src="assets/Course/Sales_Training.jpg" srcset="assets/Course/Sales_Training.jpg 1x, assets/Course/Sales_Training.jpg 2x" alt="Course" class="card-image" />
+            <h2 class="card-title">
+                <?=$course['name'];?>
+            </h2>
+            <small class="card-teacher">Chris Croft  id=> <?=$course['teacher_id'];?></small>
+            <div class="card-rating-container">
+                <span>&#11088; 4.5</span>
+                <span>(<?=$course['count_view'];?>)</span>
+            </div>
+            <div class="card-price">
+                <span>₮ <?=$course['price'];?></span><small>₮49,900</small>
+            </div>
+            <small class="card-best">Best seller</small>
+        </a>
+    </div>
+    <?php endforeach ?>
+    
+</div>
