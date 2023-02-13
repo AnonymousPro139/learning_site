@@ -1,0 +1,32 @@
+<?php $last_lesson_id=$data['course'][0]['last_lesson']; ?>
+
+<div class="container-xxl py-5" id="detail">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative" style="height: 420px;">
+                    <img class="img-fluid position-absolute w-100 h-100" src="/img/about.jpg" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.2s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">About course</h6>
+                <h1 class="mb-4"><?= $data['course'][0]['name']; ?></h1>
+                <p class="mb-4">     <?= $data['course'][0]['note']; ?></p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">Хичээлийн агуулга</h6>
+                    <ul class="list-group">
+                        <?php foreach($data['course'][1] as $lesson):?>
+                        <a href="#">
+                            <li class="list-group-item rounded-pill mt-1 <?php if($lesson['lesson_id'] == $last_lesson_id ) echo 'active'; ?>" style="height: 55px;">
+                                <i class="fas fa-lock" style="margin-top: 3px; margin-right: 3px;"></i> <?=$lesson['lesson_id'];?>. <?=$lesson['name'];?> 
+                                <p  align="right"><?=gmdate('H:i:s',$lesson['seconds']);?></p>
+                            </li>
+                        </a>
+                        <?php endforeach ?>
+                      </ul>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
