@@ -9,9 +9,9 @@ class Courses extends Model
         return $this->db->query($sql);
     }
 
-    public function getMyCourses()
+    public function getMyCourses($user_id)
     {
-        $id =  (int)Session::get('user_id');
+        $user_id =  (int)$user_id; // user_id-g holboh ???
         $sql = "SELECT * FROM courses where category='it' order by id DESC";
 
         return $this->db->query($sql);
@@ -34,4 +34,5 @@ class Courses extends Model
 
         return $this->db->query($sql);
     }
+
 }

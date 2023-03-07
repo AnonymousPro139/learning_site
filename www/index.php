@@ -16,7 +16,7 @@ function dd($data)
 }
 
 function isSuccessLogin(){
-    if (Session::get('login') == null || Session::get('role') == null || Session::get('user_id') == null) {
+    if (Session::get('phone') == null || Session::get('role') == null || Session::get('user_id') == null) {
         return false;
     }
 

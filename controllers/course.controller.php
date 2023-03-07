@@ -15,7 +15,7 @@ class CourseController extends Controller
             return;
         }
 
-        $courses = $this->model->getList(); // ??????
+        $courses = $this->model->getMyCourses(Session::get('user_id')); // худалдаж авсан курсууд
 
         return (new View([
             'site_title' => Config::get('site'),
@@ -25,6 +25,8 @@ class CourseController extends Controller
 
     public function all(){
         $courses = $this->model->getAllCourses();
+
+        
 
         return (new View([
             'site_title' => Config::get('site'),
